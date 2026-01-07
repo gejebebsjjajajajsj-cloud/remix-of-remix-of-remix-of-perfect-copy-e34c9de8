@@ -7,8 +7,21 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const SITE_CONFIG_STORAGE_KEY = "site_admin_config_v1";
 
-// Define qual site está sendo usado - "production" para Vercel, "development" para ambiente local
-export const SITE_ID = import.meta.env.VITE_SITE_ID || "development";
+// Detecta automaticamente o site pelo domínio
+const getSiteId = (): string => {
+  if (typeof window === "undefined") return "development";
+  const hostname = window.location.hostname;
+  
+  // Se for domínio da Vercel ou domínio próprio, é produção
+  if (hostname.includes(".vercel.app") || (!hostname.includes("lovable.app") && !hostname.includes("localhost"))) {
+    return "production";
+  }
+  
+  // Lovable ou localhost = desenvolvimento
+  return "development";
+};
+
+export const SITE_ID = getSiteId();
 
 export type SiteConfig = {
   pageBackgroundColor: string;
