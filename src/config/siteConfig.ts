@@ -2,7 +2,7 @@ import banner from "@/assets/banner-user-2.jpg";
 import profilePhoto from "@/assets/profile-photo.png";
 import teaserMain from "@/assets/teaser-bolzani-1.mp4";
 import teaserAlt1 from "@/assets/kamy02.mp4";
-import bolzaniGrid from "@/assets/bolzani-instagram-grid.jpg";
+import gridPreview from "@/assets/grid-preview.png";
 import { supabase } from "@/integrations/supabase/client";
 
 export const SITE_CONFIG_STORAGE_KEY = "site_admin_config_v1";
@@ -58,7 +58,7 @@ export const defaultSiteConfig: SiteConfig = {
   whatsappButtonPriceText: "R$ 150,00",
   mainTeaserVideoUrl: teaserMain,
   secondaryTeaserVideoUrl: teaserAlt1,
-  gridImageUrl: bolzaniGrid,
+  gridImageUrl: gridPreview,
   primaryButtonBgColor: "",
   whatsappButtonBgColor: "",
 };
